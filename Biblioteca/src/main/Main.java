@@ -57,12 +57,35 @@ public class Main {
 				case 8: 
 					System.out.println("Selecione qual obra deseja excluir:\n");
 					user.getEstante().setObras(null, in.nextInt());
-					// metodo pra reordenar numero de obras
+					// funçao pra reordenar numero de obras
 					break;
 				case 9: 
 					System.out.println("Digite o título da obra:\n");
 					System.out.println(user.getEstante().buscarObraPorTitulo(in.nextLine()));
 					break;
+				case 10:
+					System.out.println("Selecione qual obra deseja atualizar a etiqueta:\n");
+					user.getEstante().listarObras();
+					//funcao para editar etiqueta
+				case 11: 
+					System.out.println("Selecione qual obra deseja avaliar:\n");
+					user.getEstante().listarObras();
+					avaliar(in.nextInt());
+				case 12:
+					// user.getEstante().listarAvaliacoes();
+				case 13:
+					System.out.println("Selecione qual avaliação deseja editar:\n");
+					// user.getEstante().listarAvaliacoes();
+					avaliar(in.nextInt());
+				case 14:
+					System.out.println("Selecione qual avaliação deseja editar:\n");
+					// user.getEstante().listarAvaliacoes();
+					user.getEstante().getObras(in.nextInt()-1).setAvaliacao(null);
+					System.out.println("Avaliação excluída com sucesso!");
+				case 15:
+					// juntar os dois 
+					user.getEstante().qtdObrasLidas();
+					user.getEstante().qtdPagsLidas();
 				default:
 					System.out.println("\nOpcao Invalida!\n");
 					break;
@@ -90,11 +113,12 @@ public class Main {
 		saida = saida + "7 - Editar obra\n";
 		saida = saida + "8 - Excluir obra\n";
 		saida = saida + "9 - Buscar obra\n";
-		saida = saida + "10 - Cadastrar avaliacao\n";
-		saida = saida + "11 - Listar avaliações\n";
-		saida = saida + "12 - Editar avaliacao\n";
-		saida = saida + "13 - Excluir avaliacao\n";
-		saida = saida + "14 - Visualizar quantidade de obras e páginas lidas";
+		saida = saida + "10 - Atualizar etiqueta\n";
+		saida = saida + "11 - Cadastrar avaliacao\n";
+		saida = saida + "12 - Listar avaliações\n";
+		saida = saida + "13 - Editar avaliacao\n";
+		saida = saida + "14 - Excluir avaliacao\n";
+		saida = saida + "15 - Visualizar quantidade de obras e páginas lidas";
 		return saida;
 	}
 	
@@ -199,5 +223,22 @@ public class Main {
 			user.getEstante().setObras(a, qtdObras);
 			user.getEstante().setQtdObras(qtdObras+'1');	
 		}
+	}
+	
+	public static Avaliacao lerDadosAvaliacao() {
+		String resenha;
+		float estrelas;
+		System.out.println("Escreva a resenha: ");
+		resenha = in.nextLine();
+		System.out.println("Entre 0.0 a 5.0, quantas estrelas esse livro merece?: ");
+		estrelas = in.nextFloat();
+		Avaliacao avaliacao = new Avaliacao(resenha, estrelas);
+		return avaliacao;
+	}
+	
+	public static void avaliar(int i) {
+		Avaliacao a = lerDadosAvaliacao();
+		user.getEstante().getObras(i-1).setAvaliacao(a);
+		System.out.println("Avaliação realizada com sucesso!");
 	}
 }

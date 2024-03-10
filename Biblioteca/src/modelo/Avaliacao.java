@@ -2,8 +2,8 @@ package modelo;
 
 public class Avaliacao {
 	private String resenha;
-	private int estrelas;
-	public Avaliacao(String resenha, int estrelas) {
+	private float estrelas;
+	public Avaliacao(String resenha, float estrelas) {
 		this.resenha = resenha;
 		this.estrelas = estrelas;
 	}
@@ -13,7 +13,7 @@ public class Avaliacao {
 	public void setResenha(String resenha) {
 		this.resenha = resenha;
 	}
-	public int getEstrelas() {
+	public float getEstrelas() {
 		return estrelas;
 	}
 	public void setEstrelas(int estrelas) {
