@@ -19,44 +19,43 @@ public class Estante {
 	
 	public String buscarObraPorTitulo(String titulo) {
 		String saida = "Resultado da busca: \n";
+		int aux = 0;
 		for (int i = 0; i < qtdObras; i++) {
 			if(obras[i].getTitulo().equalsIgnoreCase(titulo)) {
-				saida = saida + obras[i].toString();
-			} else {
-				saida = saida + "Obra não encontrada!\n";
-			}
+				aux++;
+				saida = saida + getObras(i).toString();
+			} 
+		}
+		if (aux == 0) {
+			saida = saida + "Obra não encontrada!";
 		}
 		return saida;
 	}
 	
-	public String listarObras() {
-		String saida = "***** Lista de obras ***** \n" ;
+	public void listarObras() {
+		System.out.println("***** Lista de obras *****");
 		for(int i = 0; i < qtdObras; i++) {
-			System.out.println(i);
-			saida = saida + "\n"+ obras[i].toString();
+			System.out.println(i+1 + " -> " + getObras(i).getTitulo());
 		}
-		return saida;
 	}
 	
-	public String filtrarListaDeObras(String etiqueta) {
-		String saida = "***** Lista de obras *****\n";
+	public void filtrarListaDeObras(String etiqueta) {
+		System.out.println("***** Lista de obras *****");
 		for (int i = 0; i < qtdObras; i++) {
 			if(obras[i].getEtiqueta() == "Lido")  {
-				 saida = obras[i].titulo + "\n";
+				System.out.println(i+1 + " -> " + getObras(i).getTitulo());
 			}
 		}
-		return saida;
 	}
 
-	public String listarAvaliacoes() {
-		String saida = "***** Lista de avaliações *****\n";
+	public void listarAvaliacoes() {
+		System.out.println("***** Lista de avaliações *****");
 		for (int i = 0; i < qtdObras; i++) {
 			if(obras[i].getAvaliacao() != null)  {
-				 saida = "Avaliação da obra: " + obras[i].titulo + "\n" + "Avaliação:\n" 
-			+ obras[i].avaliacao.toString();
+				System.out.println( i+1 + "Avaliação da obra: " + obras[i].titulo + 
+						"\n" + obras[i].avaliacao.toString());
 			}
 		}
-		return saida;
 	}
 	
 	public int qtdObrasLidas() {

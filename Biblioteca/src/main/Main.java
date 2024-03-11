@@ -12,6 +12,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		int op = 0;
+		
 		System.out.println(inicio());
 		aux = in.nextInt();
 		if (aux == 1) {
@@ -52,40 +53,46 @@ public class Main {
 				case 7:
 					System.out.println("Selecione qual obra deseja editar:\n");
 					user.getEstante().listarObras();
-					user.getEstante().setObras(lerDadosObra(), in.nextInt());
+					user.getEstante().setObras(lerDadosObra(), in.nextInt()-1);
 					break;
 				case 8: 
 					System.out.println("Selecione qual obra deseja excluir:\n");
-					user.getEstante().setObras(null, in.nextInt());
+					user.getEstante().listarObras();
+					user.getEstante().setObras(null, in.nextInt()-1);
 					// funçao pra reordenar numero de obras
 					break;
 				case 9: 
 					System.out.println("Digite o título da obra:\n");
-					System.out.println(user.getEstante().buscarObraPorTitulo(in.nextLine()));
+					String pesquisa = in.nextLine();
+					System.out.println(user.getEstante().buscarObraPorTitulo(pesquisa));
 					break;
 				case 10:
 					System.out.println("Selecione qual obra deseja atualizar a etiqueta:\n");
 					user.getEstante().listarObras();
-					//funcao para editar etiqueta
+					aux = in.nextInt();
+					in.nextLine();
+					System.out.println("Selecione a etiqueta: 1) Leitura atual\n2)Futura leitura\n3)Lido ");
+					user.getEstante().getObras(aux-1).setEtiqueta(cadastrarEtiqueta(in.nextInt()));
 				case 11: 
 					System.out.println("Selecione qual obra deseja avaliar:\n");
 					user.getEstante().listarObras();
 					avaliar(in.nextInt());
 				case 12:
-					// user.getEstante().listarAvaliacoes();
+					user.getEstante().listarAvaliacoes();
 				case 13:
 					System.out.println("Selecione qual avaliação deseja editar:\n");
-					// user.getEstante().listarAvaliacoes();
+					user.getEstante().listarAvaliacoes();
 					avaliar(in.nextInt());
 				case 14:
-					System.out.println("Selecione qual avaliação deseja editar:\n");
-					// user.getEstante().listarAvaliacoes();
+					System.out.println("Selecione qual avaliação deseja excluir:");
+					user.getEstante().listarAvaliacoes();
 					user.getEstante().getObras(in.nextInt()-1).setAvaliacao(null);
 					System.out.println("Avaliação excluída com sucesso!");
 				case 15:
-					// juntar os dois 
-					user.getEstante().qtdObrasLidas();
-					user.getEstante().qtdPagsLidas();
+					System.out.println("Quant. de obras lidas: "
+							+ user.getEstante().qtdObrasLidas());
+					System.out.println("Quant. de ppáginas lidas: "
+							+ user.getEstante().qtdPagsLidas());
 				default:
 					System.out.println("\nOpcao Invalida!\n");
 					break;
@@ -177,7 +184,7 @@ public class Main {
 			String sinopse;
 			System.out.println("Digite o título: ");
 			titulo = in.nextLine();
-			System.out.println("Selecione a etiqueta: 1) Leitura atual\n2)Futura leitura\n3)Lido\n ");
+			System.out.println("Selecione a etiqueta: 1) Leitura atual\n2)Futura leitura\n3)Lido ");
 			etiqueta = cadastrarEtiqueta(in.nextInt());
 			System.out.println("Digite a quantidade de páginas: ");
 			qtdPags = in.nextInt();
@@ -221,7 +228,7 @@ public class Main {
 		if (a != null) {
 			int qtdObras = user.getEstante().getQtdObras();
 			user.getEstante().setObras(a, qtdObras);
-			user.getEstante().setQtdObras(qtdObras+'1');	
+			user.getEstante().setQtdObras(qtdObras+1);	
 		}
 	}
 	
@@ -240,5 +247,9 @@ public class Main {
 		Avaliacao a = lerDadosAvaliacao();
 		user.getEstante().getObras(i-1).setAvaliacao(a);
 		System.out.println("Avaliação realizada com sucesso!");
+	}
+	public static void swapObras(int a) {
+		for(int i = a; i < user.getEstante().getQtdObras() - 1; i++) 
+			user.getEstante().setObras(user.getEstante().getObras(i+1), i);
 	}
 }
