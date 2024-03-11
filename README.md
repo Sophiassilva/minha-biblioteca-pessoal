@@ -1,2 +1,1 @@
-Projeto desenvolvido utilizando programação orientada a objetos. Se trata de um organizador de leituras, onde você cria uma conta e pode cadastrar livros e revistas, etiquetando-os 
-a partir do estado atual da leitura. Pode-se também avaliar as obras já cadastradas e visualizar a quantidade de obras lidas e a soma das páginas.
+Projeto final da disciplina de Orientação a Objetos, visando aplicar os conceitos fundamentais de programação orientada a objetos em um contexto prático.
