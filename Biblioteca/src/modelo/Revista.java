@@ -29,5 +29,11 @@ public class Revista extends Obra{
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
+	@Override
+	public String toString() {
+		return "Revista: " + titulo + "\n" + "Editora: " + editora + "Ano: " + ano + 
+				"Número: " + numero + "Etiqueta: " + etiqueta + "Quant. de páginas: " + qtdPags + "\n";
+	}
+	
 	
 }

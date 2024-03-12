@@ -32,7 +32,7 @@ public class Livro extends Obra{
 	@Override
 	public String toString() {
 		return "Título: " + titulo + "\n" + "Autor: " + autor + " Gênero: " + genero + "Etiqueta: "
-				+ etiqueta + "\n" + "Sinopse: " + sinopse + "\n" + "Quantidade de páginas: " + qtdPags + "\n";
+				+ etiqueta + "\n" + "Sinopse: " + sinopse + "\n" + "Quant. de páginas: " + qtdPags + "\n";
 	}
 	
 }

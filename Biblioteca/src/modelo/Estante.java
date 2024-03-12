@@ -17,19 +17,18 @@ public class Estante {
 		this.qtdObras = qtdObras;
 	}
 	
-	public String buscarObraPorTitulo(String titulo) {
-		String saida = "Resultado da busca: \n";
+	public void buscarObraPorTitulo(String busca) {
+		System.out.println("Resultado da busca: ");
 		int aux = 0;
 		for (int i = 0; i < qtdObras; i++) {
-			if(obras[i].getTitulo().equalsIgnoreCase(titulo)) {
+			if(obras[i].getTitulo().equalsIgnoreCase(busca)) {
 				aux++;
-				saida = saida + getObras(i).toString();
+				System.out.println(getObras(i).toString());
 			} 
 		}
 		if (aux == 0) {
-			saida = saida + "Obra não encontrada!";
+			System.out.println( "Obra não encontrada!");
 		}
-		return saida;
 	}
 	
 	public void listarObras() {
@@ -38,23 +37,19 @@ public class Estante {
 			System.out.println(i+1 + " -> " + getObras(i).getTitulo());
 		}
 	}
-	
-	public void filtrarListaDeObras(String etiqueta) {
-		System.out.println("***** Lista de obras *****");
-		for (int i = 0; i < qtdObras; i++) {
-			if(obras[i].getEtiqueta() == "Lido")  {
-				System.out.println(i+1 + " -> " + getObras(i).getTitulo());
-			}
-		}
-	}
 
 	public void listarAvaliacoes() {
 		System.out.println("***** Lista de avaliações *****");
+		int a = 0;
 		for (int i = 0; i < qtdObras; i++) {
 			if(obras[i].getAvaliacao() != null)  {
-				System.out.println( i+1 + "Avaliação da obra: " + obras[i].titulo + 
+				System.out.println( i+1 + " -> Avaliação da obra: " + obras[i].titulo + 
 						"\n" + obras[i].avaliacao.toString());
+				a++;
 			}
+		}
+		if (a == 0) {
+			System.out.println("Não há avaliações cadastradas!");
 		}
 	}
 	
