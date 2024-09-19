@@ -14,15 +14,9 @@ O diagrama UML do projeto pode ser encontrado [aqui](./UML.pdf).
 - Editar estado atual de leitura (etiqueta);
 - Visualizar quantidade de obras e páginas lidas.
 
-### Autora
+### Recursos
 
-- [Sophia Silva](https://www.linkedin.com/in/sophia-silva-a725a830a/);
-- Disciplina: Orientação a objetos.
-
-### Requisitos
-
-- Java JDK: O projeto foi desenvolvido utilizando Java 21;
-- IDE recomendada: Eclipse.
+O projeto foi desenvolvido utilizando Java 21 e o Eclipse IDE
 
 ### Licença
 
