@@ -16,7 +16,7 @@ O diagrama UML do projeto pode ser encontrado [aqui](./UML.pdf).
 
 ### Recursos
 
-O projeto foi desenvolvido utilizando Java 21 e o Eclipse IDE
+O projeto foi desenvolvido utilizando Java 21 e o Eclipse IDE.
 
 ### Licença
 
