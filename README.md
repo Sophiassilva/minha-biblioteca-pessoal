@@ -1,6 +1,6 @@
 ## Minha Biblioteca Pessoal
 
-"Minha Biblioteca Pessoal" é uma aplicação em Java desenvolvida utilizando os conceitos de programação orientada a objetos(POO). O sistema gerencia uma biblioteca pessoal, permitindo que o usuário se cadastre e gerencie sua estante de livros e revistas. O usuário pode adicionar obras, etiquetar o estado atual de leitura (leitura atual, futura ou lido), avaliar as obras e visualizar a quantidade de obras lidas.
+"Minha Biblioteca Pessoal" é uma aplicação em Java desenvolvida utilizando os conceitos de programação orientada a objetos (POO). O sistema gerencia uma biblioteca pessoal, permitindo que o usuário se cadastre e gerencie sua estante de livros e revistas. O usuário pode adicionar obras, etiquetar o estado atual de leitura (leitura atual, futura ou lido), avaliar as obras e visualizar a quantidade de obras lidas.
 
 ### Diagrama UML
 
