@@ -291,7 +291,8 @@ public class Main {
 		System.out.println("Avaliação realizada com sucesso!");
 	}
 	public static void swapObras(int a) {
-		for(int i = a; i < user.getEstante().getQtdObras() - 1; i++) 
+		for(int i = a; i < user.getEstante().getQtdObras() - 1; i++) {
 			user.getEstante().setObras(user.getEstante().getObras(i+1), i);
+		}
 	}
 }
